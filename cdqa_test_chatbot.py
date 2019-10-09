@@ -15,14 +15,16 @@ from cdqa.pipeline.cdqa_sklearn import QAPipeline
 
 # Loading data and filtering / preprocessing the documents
 df = pd.read_csv('data/bnpp_newsroom_v1.1/jungchat_result.csv',converters={'paragraphs': literal_eval})
-
+#구글드라이브 참조 :https://drive.google.com/drive/folders/1AMu93LP4CEED6mzBGcRB4gQH7OL-i7Iu
 #df = filter_paragraphs(df)
 
 # Loading QAPipeline with CPU version of BERT Reader pretrained on SQuAD 1.1
+#구글드라이브 참조 :https://drive.google.com/drive/folders/1AMu93LP4CEED6mzBGcRB4gQH7OL-i7Iu
 cdqa_pipeline = QAPipeline(reader='models/bert_qa_korquad_vCPU.joblib')
 
 # Fitting the retriever to the list of documents in the dataframe
 cdqa_pipeline.fit_retriever(df)
+#----------------------------------------------여기까지 실행후 나머지부분 실행해 주세요
 #time.sleep(5)
 # Sending a question to the pipeline and getting prediction
 #query = '지원대상이 누구야?'
